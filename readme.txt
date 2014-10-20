@@ -1,1 +1,1 @@
-Moná se èasem ukáe, e to není nejvhodnìjší øešení, ale prozatím jsme se shodli na pøístupu 1 skupina = 1 branch, kterı bude zaplnìn slokami s odevzdanımi úkoly konkrétní skupiny.
+MoÅ¾nÃ¡ se Äasem ukÃ¡Å¾e, Å¾e to nenÃ­ nejvhodnÄ›jÅ¡Ã­ Å™eÅ¡enÃ­, ale prozatÃ­m jsme se shodli na pÅ™Ã­stupu 1 skupina = 1 branch, kterÃ½ bude zaplnÄ›n sloÅ¾kami s odevzdanÃ½mi Ãºkoly konkrÃ©tnÃ­ skupiny.
