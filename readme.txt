@@ -1,1 +1,0 @@
-Možná se časem ukáže, že to není nejvhodnější řešení, ale prozatím jsme se shodli na přístupu 1 skupina = 1 branch, který bude zaplněn složkami s odevzdanými úkoly konkrétní skupiny.
