@@ -1,0 +1,51 @@
+body {
+    font-family: arial;
+    background: #263248;
+}
+
+#form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    width: 200px;
+    height: 200px;
+    padding: 80px;
+    border: solid 10px #1C2536;
+    color: white;
+    font-size: 15px;   
+}
+
+#form_register {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -300px;
+    margin-left: -200px;
+    width: 200px;
+    height: 400px;
+    padding: 80px;
+    border: solid 10px #1C2536;
+    color: white;
+    font-size: 15px; 
+}
+
+#registrace_opravneni_list {
+    
+}
+
+.text_field {
+    margin-top: 0px;
+    height: 25px;
+    width: 200px;
+    background: #7E8AA2;
+}
+
+.buttons {
+    margin-top: 15px;
+    height: 30px;
+    width: 205px;
+    background: #FF9800;
+}
+
