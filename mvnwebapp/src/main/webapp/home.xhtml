@@ -14,17 +14,17 @@
             <p></p>
             <p>Login:<h:inputText class="text_field" id="registrace_login" required="true" value="#{registrace.login}" /></p>
             <p></p>
-            <p>Heslo:<h:inputSecret class="text_field" id="registrace_heslo" required="true" value="#{registrace.heslo}" /></p>
+            <p>Heslo:<h:inputSecret class="text_field" id="registrace_heslo" required="true" value="#{registrace.pass}" /></p>
             <p></p>
-            <p>Meno:<h:inputText class="text_field" id="registrace_jmeno" required="true" value="#{registrace.jmeno}" /></p>
+            <p>Meno:<h:inputText class="text_field" id="registrace_jmeno" required="true" value="#{registrace.name}" /></p>
             <p></p>
-            <p>Přijmení<h:inputText class="text_field" id="registrace_prijmeni" required="true" value="#{registrace.prijmeni}" /></p>
+            <p>Přijmení<h:inputText class="text_field" id="registrace_prijmeni" required="true" value="#{registrace.surname}" /></p>
             <p></p>
             <p>E-mail:<h:inputText class="text_field" id="registrace_email" required="true" value="#{registrace.email}" /></p>
             <p></p>
-            <p>Oprávnení:<h:selectOneMenu class="text_field" id="registrace_opravneni" value="#{registrace.opravneni}"> 
-                <f:selectItem id="administrator" itemValue="Administrátor" />
-                <f:selectItem id="uzivatel" itemValue="Uživateľ" />
+            <p>Oprávnení:<h:selectOneMenu class="text_field" id="registrace_opravneni" value="#{registrace.role}"> 
+                <f:selectItem id="0" itemValue="Administrátor" />
+                <f:selectItem id="1" itemValue="Uživateľ" />
             </h:selectOneMenu></p> 
             
             <p></p>
