@@ -85,8 +85,8 @@ public class User implements Serializable
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.login);
         return hash;
     }
 
@@ -99,8 +99,17 @@ public class User implements Serializable
             return false;
         }
         final User other = (User) obj;
-        return Objects.equals(this.id, other.id);
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
+        return true;
     }
+
+ 
+
+   
+
+    
 
     
     @Override

@@ -15,12 +15,12 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class ManageUsersView
+public class ManageUsers
 {
     @EJB
     private UserFacade userFacade;
 
-    public ManageUsersView(){
+    public ManageUsers(){
 
     }
     public boolean loginUser(LogForm user)

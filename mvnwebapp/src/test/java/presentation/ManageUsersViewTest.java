@@ -49,7 +49,7 @@ public class ManageUsersViewTest {
     public void testLoginUser() {
         System.out.println("loginUser");
         LogForm user = null;
-        ManageUsersView instance = new ManageUsersView();
+        ManageUsers instance = new ManageUsers();
         boolean expResult = false;
         boolean result = instance.loginUser(user);
         assertEquals(expResult, result);
@@ -64,7 +64,7 @@ public class ManageUsersViewTest {
     public void testCreateUser() {
         System.out.println("createUser");
         RegForm newUser = null;
-        ManageUsersView instance = new ManageUsersView();
+        ManageUsers instance = new ManageUsers();
         boolean expResult = false;
         boolean result = instance.createUser(newUser);
         assertEquals(expResult, result);
@@ -78,7 +78,7 @@ public class ManageUsersViewTest {
     @Test
     public void testPrintUsers() {
         System.out.println("printUsers");
-        ManageUsersView instance = new ManageUsersView();
+        ManageUsers instance = new ManageUsers();
         ArrayList<User> expResult = null;
         ArrayList<User> result = instance.printUsers();
         assertEquals(expResult, result);
@@ -93,7 +93,7 @@ public class ManageUsersViewTest {
     public void testLogoutUser() {
         System.out.println("logoutUser");
         String login = "";
-        ManageUsersView instance = new ManageUsersView();
+        ManageUsers instance = new ManageUsers();
         boolean expResult = false;
         boolean result = instance.logoutUser(login);
         assertEquals(expResult, result);
