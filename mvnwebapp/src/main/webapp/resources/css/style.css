@@ -3,7 +3,7 @@ body {
     background: #263248;
 }
 
-#form {
+#LogForm {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -17,7 +17,7 @@ body {
     font-size: 15px;   
 }
 
-#form_register {
+#RegForm {
     position: absolute;
     left: 50%;
     top: 50%;

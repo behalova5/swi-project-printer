@@ -2,8 +2,13 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+@ManagedBean(name="LogForm")
+@RequestScoped
 
 /**
  *
@@ -18,6 +23,12 @@ public class LogForm implements Serializable
     private String login;
     private String pass;
 
+    public void odesliFormular() 
+    {
+            //setLogin(login);
+            //setPass(pass);       
+    }
+    
     public String getLogin()
     {
             return login;

@@ -2,8 +2,13 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+@ManagedBean(name="RegForm")
+@RequestScoped
 
 /**
  *
@@ -21,6 +26,11 @@ public class RegForm implements Serializable
     private String name;
     private String surname;
     private Integer role;
+    
+    public void odesliFormular() 
+    {
+        
+    }
 
     public String getEmail() {
         return email;

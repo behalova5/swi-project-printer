@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        
+    <h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Prihlásenie užívateľa</title>
+    </h:head>
+    
+    <h:body>
+        <h:form id="LogForm">
+            <div style="position: absolute; top: 0; left: 65px; margin-top: 40px; font-size: 20px;">SWI PROJECT PRINTER</div>
+            <p></p>
+            <p>Meno:<h:inputText class="text_field" required="true" id="LogForm_login" value="#{LogForm.login}" /></p>
+            <!--<h:message for="LogForm_login"/>-->
+            <p></p>
+            <p>Heslo:<h:inputSecret class="text_field" required="true" id="LogForm_pass" value="#{LogForm.pass}" /></p>
+            <!--<h:message for="LogForm_pass"/>-->
+            <p></p>
+            <h:commandButton class="buttons" id="LogForm_odesliFormular" value="Prihlásiť" action="#{LogForm.odesliFormular}"/>
+        </h:form>
+    </h:body>
+    
+</html>
+
