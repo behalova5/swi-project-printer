@@ -55,8 +55,6 @@ public class UserFacadeTest {
         UserFacade instance = (UserFacade)container.getContext().lookup("java:global/classes/UserFacade");
         instance.create(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,8 +68,6 @@ public class UserFacadeTest {
         UserFacade instance = (UserFacade)container.getContext().lookup("java:global/classes/UserFacade");
         instance.edit(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,8 +81,6 @@ public class UserFacadeTest {
         UserFacade instance = (UserFacade)container.getContext().lookup("java:global/classes/UserFacade");
         instance.remove(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,8 +96,6 @@ public class UserFacadeTest {
         User result = instance.find(id);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -118,8 +110,6 @@ public class UserFacadeTest {
         List<User> result = instance.findAll();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -135,8 +125,6 @@ public class UserFacadeTest {
         List<User> result = instance.findRange(range);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -151,8 +139,6 @@ public class UserFacadeTest {
         int result = instance.count();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -167,8 +153,6 @@ public class UserFacadeTest {
         ArrayList<User> result = instance.getAllUsers();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -184,8 +168,6 @@ public class UserFacadeTest {
         User result = instance.getUserByLogin(login);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -201,8 +183,6 @@ public class UserFacadeTest {
         boolean result = instance.insertUser(newUser);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -219,8 +199,6 @@ public class UserFacadeTest {
         boolean result = instance.changeRole(user, role);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -236,8 +214,6 @@ public class UserFacadeTest {
         boolean result = instance.existsUser(user);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

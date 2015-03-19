@@ -52,8 +52,6 @@ public class RegFormFacadeTest {
         RegFormFacade instance = (RegFormFacade)container.getContext().lookup("java:global/classes/RegFormFacade");
         instance.create(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -67,8 +65,6 @@ public class RegFormFacadeTest {
         RegFormFacade instance = (RegFormFacade)container.getContext().lookup("java:global/classes/RegFormFacade");
         instance.edit(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -82,8 +78,6 @@ public class RegFormFacadeTest {
         RegFormFacade instance = (RegFormFacade)container.getContext().lookup("java:global/classes/RegFormFacade");
         instance.remove(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,8 +93,6 @@ public class RegFormFacadeTest {
         RegForm result = instance.find(id);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,8 +107,6 @@ public class RegFormFacadeTest {
         List<RegForm> result = instance.findAll();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -132,8 +122,6 @@ public class RegFormFacadeTest {
         List<RegForm> result = instance.findRange(range);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -148,8 +136,6 @@ public class RegFormFacadeTest {
         int result = instance.count();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -164,8 +150,6 @@ public class RegFormFacadeTest {
         RegForm result = instance.getRegFrom();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

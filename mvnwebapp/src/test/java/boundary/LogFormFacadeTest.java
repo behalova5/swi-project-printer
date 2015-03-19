@@ -47,13 +47,14 @@ public class LogFormFacadeTest {
     @Test
     public void testCreate() throws Exception {
         System.out.println("create");
-        LogForm entity = null;
+        LogForm entity = new LogForm();
+        entity.setLogin("testLogin");
+        entity.setPass("testPass");
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
         LogFormFacade instance = (LogFormFacade)container.getContext().lookup("java:global/classes/LogFormFacade");
         instance.create(entity);
+        assertEquals(entity, instance.getLogForm());
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -67,8 +68,6 @@ public class LogFormFacadeTest {
         LogFormFacade instance = (LogFormFacade)container.getContext().lookup("java:global/classes/LogFormFacade");
         instance.edit(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -82,8 +81,6 @@ public class LogFormFacadeTest {
         LogFormFacade instance = (LogFormFacade)container.getContext().lookup("java:global/classes/LogFormFacade");
         instance.remove(entity);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,8 +96,6 @@ public class LogFormFacadeTest {
         LogForm result = instance.find(id);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,8 +110,6 @@ public class LogFormFacadeTest {
         List<LogForm> result = instance.findAll();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -132,8 +125,6 @@ public class LogFormFacadeTest {
         List<LogForm> result = instance.findRange(range);
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -148,8 +139,6 @@ public class LogFormFacadeTest {
         int result = instance.count();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -164,8 +153,6 @@ public class LogFormFacadeTest {
         LogForm result = instance.getLogForm();
         assertEquals(expResult, result);
         container.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

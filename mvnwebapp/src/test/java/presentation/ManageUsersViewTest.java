@@ -53,8 +53,6 @@ public class ManageUsersViewTest {
         boolean expResult = false;
         boolean result = instance.loginUser(user);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -68,8 +66,6 @@ public class ManageUsersViewTest {
         boolean expResult = false;
         boolean result = instance.createUser(newUser);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -82,8 +78,6 @@ public class ManageUsersViewTest {
         ArrayList<User> expResult = null;
         ArrayList<User> result = instance.printUsers();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,8 +91,6 @@ public class ManageUsersViewTest {
         boolean expResult = false;
         boolean result = instance.logoutUser(login);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
