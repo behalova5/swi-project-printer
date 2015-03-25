@@ -28,13 +28,19 @@ public class UserFacade extends AbstractFacade<User>
     
     public User getUserByLogin(String login)
     {
-        return (User) em.createQuery("SELECT * FROM User u WHERE login=:userLogin")
-                .setParameter("userLogin", login)
-                .getSingleResult();
+        try {
+            return (User) em.createQuery("SELECT * FROM user WHERE login = :login")
+                    .setParameter(":login", login)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }  
     }
     
-    public boolean existsUser(User user) {
-        return findAll().contains(user);
+    public boolean existsUser(String login) {
+        
+        int prom = em.createQuery("SELECT * FROM user WHERE id = :id").setParameter(":id", login).getMaxResults();
+        return prom != 0;
     }
         
 	
