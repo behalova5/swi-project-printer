@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
  * @author E589510
  */
 @Stateless
-public class UserFacade extends AbstractFacade<User>
+public class UserFacade extends AbstractFacade<User> implements IUserFacade
 {
     @PersistenceContext(unitName = "swi-project-printerPU")
     private EntityManager em;
@@ -26,6 +26,7 @@ public class UserFacade extends AbstractFacade<User>
             super(User.class);
     }
     
+    @Override
     public User getUserByLogin(String login)
     {
         try {
@@ -37,6 +38,7 @@ public class UserFacade extends AbstractFacade<User>
         }  
     }
     
+    @Override
     public boolean existsUser(String login) {
         
         int prom = em.createQuery("SELECT * FROM user WHERE id = :id").setParameter(":id", login).getMaxResults();
