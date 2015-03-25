@@ -1,31 +1,32 @@
 package presentation;
 
+import boundary.IUserFacade;
 import boundary.UserFacade;
-import managebeans.LogForm;
-import managebeans.RegForm;
 import entities.User;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import managebeans.LogForm;
+import managebeans.RegForm;
 
 @ManagedBean(name="ManageUsers")
 @SessionScoped
 public class ManageUsers
 {
     @EJB
-    private UserFacade userFacade;
+    private IUserFacade userFacade;
     
     
     public ManageUsers(){
 
     }
     
-    public UserFacade getUserFacade() {
+    public IUserFacade getUserFacade() {
         return userFacade;
     }
 
-    public void setUserFacade(UserFacade userFacade) {
+    public void setUserFacade(IUserFacade userFacade) {
         this.userFacade = userFacade;
     }
 
