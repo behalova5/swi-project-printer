@@ -6,17 +6,26 @@
 
 package boundary;
 
-import entities.User;
-import javax.swing.text.AbstractDocument;
+import java.util.List;
 
 /**
  *
  * @author okalman
  */
-public interface IUserFacade extends IAbstractFacade<User>{
+public interface IAbstractFacade<T> {
 
-    boolean existsUser(String login);
+    int count();
 
-    User getUserByLogin(String login);
+    void create(T entity);
+
+    void edit(T entity);
+
+    T find(Object id);
+
+    List<T> findAll();
+
+    List<T> findRange(int[] range);
+
+    void remove(T entity);
     
 }
