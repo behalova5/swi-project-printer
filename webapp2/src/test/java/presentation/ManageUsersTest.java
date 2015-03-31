@@ -6,19 +6,19 @@
 
 package presentation;
 
-import boundary.IUserFacade;
-import boundary.UserFacade;
-import entities.User;
+import app.ManageUsers;
+import db.entities.User;
+import db.facades.IUserFacade;
 import java.util.ArrayList;
 import java.util.List;
-import managebeans.LogForm;
-import managebeans.RegForm;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import view.managebeans.LogForm;
+import view.managebeans.RegForm;
 
 /**
  *
