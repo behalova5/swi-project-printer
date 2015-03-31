@@ -1,4 +1,4 @@
-package managebeans;
+package view.managebeans;
 
 import java.io.Serializable;
 import java.util.Objects;

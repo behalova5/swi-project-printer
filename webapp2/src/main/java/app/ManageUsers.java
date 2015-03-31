@@ -1,14 +1,14 @@
-package presentation;
+package app;
 
-import boundary.IUserFacade;
-import boundary.UserFacade;
-import entities.User;
+import db.facades.IUserFacade;
+import db.facades.UserFacade;
+import db.entities.User;
 import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import managebeans.LogForm;
-import managebeans.RegForm;
+import view.managebeans.LogForm;
+import view.managebeans.RegForm;
 
 @ManagedBean(name="ManageUsers")
 @SessionScoped
@@ -31,7 +31,7 @@ public class ManageUsers
     }
 
 
-    public boolean loginUser(LogForm user)
+    /*public boolean loginUser(LogForm user)
     {
         if(userFacade.existsUser(user)){
             //create statefull bean
@@ -50,6 +50,6 @@ public class ManageUsers
     public boolean logoutUser(String login)
     {
         return false;
-    }
+    }*/
   
 }

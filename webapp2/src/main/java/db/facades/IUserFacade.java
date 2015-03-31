@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
-package boundary;
+package db.facades;
 
-import entities.User;
+import db.abstr.facades.IAbstractFacade;
+import db.entities.User;
 import javax.swing.text.AbstractDocument;
 
 /**

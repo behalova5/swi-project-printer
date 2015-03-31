@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package boundary;
+package db.abstr.facades;
 
 import java.util.List;
 

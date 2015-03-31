@@ -1,6 +1,7 @@
-package boundary;
+package db.facades;
 
-import entities.User;
+import db.abstr.facades.AbstractFacade;
+import db.entities.User;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

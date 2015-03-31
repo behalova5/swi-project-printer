@@ -1,4 +1,4 @@
-package boundary;
+package db.abstr.facades;
 
 import java.util.List;
 import javax.persistence.EntityManager;
