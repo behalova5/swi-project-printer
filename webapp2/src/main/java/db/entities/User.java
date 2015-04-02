@@ -14,18 +14,16 @@ import javax.persistence.Id;
 @Entity
 public class User implements Serializable
 {
-    public static final Integer ADMIN = 0;
-    public static final Integer UZIVATEL = 1;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String email;
-    private String login;
-    private String passHash;
-    private String name;
-    private String surname;
-    private Integer role;
+    private Email email;
+    private Login login;
+    private Password passHash;
+    private Name name;
+    private Surname surname;
+    private Role role;
 
     public Integer getId() {
         return id;
@@ -39,7 +37,7 @@ public class User implements Serializable
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 
@@ -47,7 +45,7 @@ public class User implements Serializable
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(Login login) {
         this.login = login;
     }
 
@@ -55,7 +53,7 @@ public class User implements Serializable
         return passHash;
     }
 
-    public void setPassHash(String passHash) {
+    public void setPassHash(Password passHash) {
         this.passHash = passHash;
     }
 
@@ -63,7 +61,7 @@ public class User implements Serializable
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Name name) {
         this.name = name;
     }
 
@@ -71,7 +69,7 @@ public class User implements Serializable
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public void setSurname(Surname surname) {
         this.surname = surname;
     }
 
@@ -79,7 +77,7 @@ public class User implements Serializable
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
