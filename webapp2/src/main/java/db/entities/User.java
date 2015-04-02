@@ -30,7 +30,7 @@ public class User implements Serializable
     private Password passHash;
     private Name name;
     private Surname surname;
-    private Role user_role;
+    private Role userRole;
 
     public Integer getId() {
         return id;
@@ -81,11 +81,11 @@ public class User implements Serializable
     }
 
     public Role getRole() {
-        return user_role;
+        return userRole;
     }
 
     public void setRole(Role role) {
-        this.user_role = role;
+        this.userRole = role;
     }
 
     @Override
@@ -119,7 +119,7 @@ public class User implements Serializable
     
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email.getEmail() + ", login=" + login.getLogin() + ", passHash=" + passHash.getPassword() + ", name=" + name.getName() + ", surname=" + surname.getSurname() + ", role=" + user_role + '}';
+        return "User{" + "id=" + id + ", email=" + email.getEmail() + ", login=" + login.getLogin() + ", passHash=" + passHash.getPassword() + ", name=" + name.getName() + ", surname=" + surname.getSurname() + ", role=" + userRole + '}';
     }
 
 
