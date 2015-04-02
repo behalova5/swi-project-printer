@@ -9,6 +9,12 @@ package presentation;
 import app.ManageUsers;
 import db.entities.User;
 import db.facades.IUserFacade;
+import global.types.Email;
+import global.types.Login;
+import global.types.Name;
+import global.types.Password;
+import global.types.Role;
+import global.types.Surname;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -37,22 +43,22 @@ public class ManageUsersTest {
             ArrayList<User>list = new ArrayList<User>();
             
             void IUserFacade(){
-                user.setEmail("neco@neco.com");
+                user.setEmail(new Email("neco@neco.com"));
                 user.setId(Integer.SIZE);
-                user.setLogin("User");
-                user.setPassHash("user");
-                user.setRole(1);
-                user.setName("Jmeno");
-                user.setSurname("Prijmeni");
+                user.setLogin(new Login("User"));
+                user.setPassHash(new Password("user"));
+                user.setRole(Role.ADMIN);
+                user.setName(new Name("Jmeno"));
+                user.setSurname(new Surname("Prijmeni"));
             }
         
             @Override
-            public boolean existsUser(String login) {
+            public boolean existsUser(Login login) {
                 return user.getLogin().equals(login);
             }
 
             @Override
-            public User getUserByLogin(String login) {
+            public User getUserByLogin(Login login) {
                 
                 
                 if(user.getLogin().equals(login)){
