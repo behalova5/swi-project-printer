@@ -28,7 +28,7 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
     }
     
     @Override
-    public User getUserByLogin(String login)
+    public User getUserByLogin(Login login)
     {
         try {
             return (User) em.createQuery("SELECT * FROM user WHERE login = :login")
@@ -40,9 +40,9 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
     }
     
     @Override
-    public boolean existsUser(String login) {
+    public boolean existsUser(Login login) {
         
-        int prom = em.createQuery("SELECT * FROM user WHERE id = :id").setParameter(":id", login).getMaxResults();
+        int prom = em.createQuery("SELECT * FROM user WHERE login = :login").setParameter(":login", login).getMaxResults();
         return prom != 0;
     }
         
