@@ -2,6 +2,7 @@ package db.facades;
 
 import db.abstr.facades.AbstractFacade;
 import db.entities.User;
+import global.types.Login;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

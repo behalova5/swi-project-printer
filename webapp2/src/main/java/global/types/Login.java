@@ -5,7 +5,9 @@
  */
 package global.types;
 
-public class Login {
+import java.io.Serializable;
+
+public class Login implements Serializable{
     private String login;
     public Login(String login){
         this.login = login;

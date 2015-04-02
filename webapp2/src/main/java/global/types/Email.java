@@ -5,7 +5,9 @@
  */
 package global.types;
 
-public class Email {
+import java.io.Serializable;
+
+public class Email implements Serializable{
     private String email;
     public Email(String email){
         this.email = email;

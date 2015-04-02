@@ -5,7 +5,9 @@
  */
 package global.types;
 
-public class Password {
+import java.io.Serializable;
+
+public class Password implements Serializable{
     private String password;
     public Password(String password) {
         this.password = password;

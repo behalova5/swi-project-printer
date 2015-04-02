@@ -8,7 +8,7 @@ package db.facades;
 
 import db.abstr.facades.IAbstractFacade;
 import db.entities.User;
-import javax.swing.text.AbstractDocument;
+import global.types.Login;
 
 /**
  *
@@ -16,8 +16,8 @@ import javax.swing.text.AbstractDocument;
  */
 public interface IUserFacade extends IAbstractFacade<User>{
 
-    boolean existsUser(String login);
+    boolean existsUser(Login login);
 
-    User getUserByLogin(String login);
+    User getUserByLogin(Login login);
     
 }

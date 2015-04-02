@@ -1,5 +1,11 @@
 package db.entities;
 
+import global.types.Email;
+import global.types.Login;
+import global.types.Name;
+import global.types.Password;
+import global.types.Role;
+import global.types.Surname;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -11,6 +17,7 @@ import javax.persistence.Id;
  *
  * @author E589510
  */
+
 @Entity
 public class User implements Serializable
 {
@@ -23,7 +30,7 @@ public class User implements Serializable
     private Password passHash;
     private Name name;
     private Surname surname;
-    private Role role;
+    private Role user_role;
 
     public Integer getId() {
         return id;
@@ -34,7 +41,7 @@ public class User implements Serializable
     }
 
     public String getEmail() {
-        return email;
+        return email.getEmail();
     }
 
     public void setEmail(Email email) {
@@ -42,7 +49,7 @@ public class User implements Serializable
     }
 
     public String getLogin() {
-        return login;
+        return login.getLogin();
     }
 
     public void setLogin(Login login) {
@@ -50,7 +57,7 @@ public class User implements Serializable
     }
 
     public String getPassHash() {
-        return passHash;
+        return passHash.getPassword();
     }
 
     public void setPassHash(Password passHash) {
@@ -58,7 +65,7 @@ public class User implements Serializable
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public void setName(Name name) {
@@ -66,19 +73,19 @@ public class User implements Serializable
     }
 
     public String getSurname() {
-        return surname;
+        return surname.getSurname();
     }
 
     public void setSurname(Surname surname) {
         this.surname = surname;
     }
 
-    public Integer getRole() {
-        return role;
+    public Role getRole() {
+        return user_role;
     }
 
     public void setRole(Role role) {
-        this.role = role;
+        this.user_role = role;
     }
 
     @Override
@@ -112,7 +119,7 @@ public class User implements Serializable
     
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email + ", login=" + login + ", passHash=" + passHash + ", name=" + name + ", surname=" + surname + ", role=" + role + '}';
+        return "User{" + "id=" + id + ", email=" + email.getEmail() + ", login=" + login.getLogin() + ", passHash=" + passHash.getPassword() + ", name=" + name.getName() + ", surname=" + surname.getSurname() + ", role=" + user_role + '}';
     }
 
 

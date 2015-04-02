@@ -5,7 +5,9 @@
  */
 package global.types;
 
-public class Surname {
+import java.io.Serializable;
+
+public class Surname implements Serializable{
     private String surname;
     public Surname(String surname){
         this.surname = surname;
