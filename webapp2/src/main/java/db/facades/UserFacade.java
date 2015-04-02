@@ -1,18 +1,16 @@
 package db.facades;
 
+import global.types.*;
 import db.abstr.facades.AbstractFacade;
 import db.entities.User;
-import global.types.Login;
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author E589510
- */
+
 @Stateless
-public class UserFacade extends AbstractFacade<User> implements IUserFacade
+public class UserFacade extends AbstractFacade<User>
 {
     @PersistenceContext(unitName = "swi-project-printerPU")
     private EntityManager em;
@@ -28,23 +26,33 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
             super(User.class);
     }
     
-    @Override
     public User getUserByLogin(Login login)
     {
-        try {
+       try {
             return (User) em.createQuery("SELECT * FROM user WHERE login = :login")
                     .setParameter(":login", login)
                     .getSingleResult();
         } catch (Exception e) {
             return null;
-        }  
+        }
     }
     
-    @Override
+    //@Override
     public boolean existsUser(Login login) {
-        
-        int prom = em.createQuery("SELECT * FROM user WHERE login = :login").setParameter(":login", login).getMaxResults();
+        //getMaxResults returns LIMIT clause from sql, it doesnt execute query
+        int prom;
+        prom = em.createQuery("SELECT u FROM User u WHERE u.login = :login", User.class).setParameter("login", login).getMaxResults();
         return prom != 0;
+    }
+
+    
+    public boolean existsUser(String login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    //@Override
+    public User getUserByLogin(String login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 	

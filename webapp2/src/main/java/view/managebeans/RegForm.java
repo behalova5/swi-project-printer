@@ -1,34 +1,56 @@
 package view.managebeans;
 
+import db.entities.User;
+import global.types.Email;
+import global.types.Login;
+import global.types.Name;
+import global.types.Password;
+import global.types.Role;
+import global.types.Surname;
 import java.io.Serializable;
-import java.util.Objects;
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import view.facades.RegFormFacade;
 
 @ManagedBean(name="RegForm")
-@RequestScoped
+@SessionScoped
 
-/**
- *
- * @author E589510
- */
-@Entity
+
 public class RegForm implements Serializable
 {
-    @Id
-    private Long id;
     private static final long serialVersionUID = 1L;
     private String email;
     private String login;
     private String pass;
     private String name;
     private String surname;
-    private Integer role;
+    private String role;
+    private String message;
+    
+    @EJB
+    private view.facades.RegFormFacade facade;
+    
+
+    public RegForm() {
+        
+    }
+    
     
     public String sendForm(){
-        return "index";
+        if(createUser()){
+           message = "Uživatel " + getLogin() + " zaregistrován." ;
+           return "index";
+        } else {
+           message = "Uživatel " + getLogin() + " je již zaregistrován." ;
+           return "regform";
+        }
+    }
+
+   
+    @Override
+    public String toString() {
+        return "RegForm{" + "email=" + email + ", login=" + login + ", pass=" + pass + ", name=" + name + ", surname=" + surname + ", role=" + role + '}';
     }
 
     public String getEmail() {
@@ -40,7 +62,7 @@ public class RegForm implements Serializable
     }
 
     public String getLogin() {
-        return login;
+            return login;
     }
 
     public void setLogin(String login) {
@@ -48,7 +70,7 @@ public class RegForm implements Serializable
     }
 
     public String getPass() {
-        return pass;
+            return pass;
     }
 
     public void setPass(String pass) {
@@ -71,55 +93,44 @@ public class RegForm implements Serializable
         this.surname = surname;
     }
 
-    public Integer getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 11 * hash + Objects.hashCode(this.email);
-        hash = 11 * hash + Objects.hashCode(this.login);
-        hash = 11 * hash + Objects.hashCode(this.name);
-        hash = 11 * hash + Objects.hashCode(this.surname);
-        return hash;
+    public RegFormFacade getFacade() {
+        return facade;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final RegForm other = (RegForm) obj;
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.login, other.login)) {
-            return false;
-        }
-        return true;
+    public void setFacade(RegFormFacade facade) {
+        this.facade = facade;
+    }
+    
+    public Role[] getRolesValue(){
+        return Role.values();
+    }
+   
+    public boolean createUser(){
+        User user = new User();
+        user.setEmail(new Email(email));
+        user.setLogin(new Login(login));
+        user.setName(new Name(name));
+        user.setPassHash(new Password(pass));
+        user.setRole(Role.valueOf(role));
+        user.setSurname(new Surname(surname));
+        return getFacade().createUser(user);
     }
 
-    @Override
-    public String toString() {
-        return "RegForm{" + "email=" + email + ", login=" + login + ", pass=" + pass + ", name=" + name + ", surname=" + surname + ", role=" + role + '}';
+    public String getMessage() {
+        return message;
     }
 
-    public Long getId() {
-        return id;
+    public void setMessage(String message) {
+        this.message = message;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
 	
-	
+    
 }

@@ -1,26 +1,33 @@
 package view.facades;
 
-import db.abstr.facades.AbstractFacade;
+import app.ManageUsers;
+import db.entities.User;
+import javax.ejb.EJB;
 import view.managebeans.RegForm;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author E589510
- */
 @Stateless
 public class RegFormFacade{ 
-
-    public RegFormFacade()
-    {
-           
+    
+    @EJB    
+    public ManageUsers manageUsers;
+    
+    
+    public RegFormFacade(){
+     
     }
 
     public RegForm getRegFrom()
     {
         return null;
+    }
+    
+    public boolean createUser(User user){
+        return manageUsers.createUser(user);
+    }
+
+    public ManageUsers getManageUsers() {
+        return manageUsers;
     }
 	
 }

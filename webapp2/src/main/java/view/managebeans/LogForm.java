@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
 @ManagedBean(name="LogForm")
 @RequestScoped
@@ -14,8 +13,10 @@ public class LogForm implements Serializable{
     private static final long serialVersionUID = 1L;
     private String login;
     private String pass;
+    private String message;
     
     public String sendForm() {
+          message = "Uživatel " + getLogin() + " přihlášen.";
           return "index";       
     }
     
@@ -38,6 +39,15 @@ public class LogForm implements Serializable{
     {
             this.pass = pass;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
 
     @Override
     public int hashCode() {

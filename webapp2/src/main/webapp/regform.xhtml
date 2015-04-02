@@ -9,7 +9,7 @@
     </h:head>
     
     <h:body>
-        <h:form id="form_register">
+        <h:form id="RegForm">
             <div style="position: absolute; top: 0; left: 95px; margin-top: 40px; font-size: 20px;">Registrační formulář</div>
             <p></p>
             <p>Login<h:inputText class="text_field" id="registrace_login" required="true" value="#{RegForm.login}" /></p>
@@ -23,15 +23,13 @@
             <p>E-mail<h:inputText class="text_field" id="registrace_email" required="true" value="#{RegForm.email}" /></p>
             <p></p>
             <p>Oprávnení<h:selectOneMenu class="text_field" id="registrace_opravneni" value="#{RegForm.role}"> 
-                <f:selectItem itemValue="0" itemLabel="Administrátor" />
-                <f:selectItem itemValue="1" itemLabel="Uživateľ" />
-            </h:selectOneMenu></p> 
+                    <f:selectItems value="#{RegForm.rolesValue}" />
+            </h:selectOneMenu></p>  
             
             <p></p>
-            <h:commandButton class="buttons" id="login_button" value="Registrovať" action="#{RegForm.sendForm()}"/> 
-            <!-- RedirectToHome prepisat na {odesliFormular()} -->
+            <h:commandButton class="buttons" id="login_button" value="Zaregistrovat" action="#{RegForm.sendForm()}"/> 
         </h:form>
+        #{RegForm.message}
     </h:body>
     
 </html>
-

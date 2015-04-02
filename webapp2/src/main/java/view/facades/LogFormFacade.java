@@ -1,10 +1,7 @@
 package view.facades;
 
-import db.abstr.facades.AbstractFacade;
 import view.managebeans.LogForm;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *

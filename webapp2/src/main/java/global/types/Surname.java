@@ -7,7 +7,8 @@ package global.types;
 
 import java.io.Serializable;
 
-public class Surname implements Serializable{
+public class Surname implements Serializable {
+    
     private String surname;
     public Surname(String surname){
         this.surname = surname;
@@ -19,6 +20,10 @@ public class Surname implements Serializable{
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+    @Override
+    public String toString() {
+        return surname;
     }
     
 }

@@ -1,55 +1,34 @@
 package app;
 
-import db.facades.IUserFacade;
-import db.facades.UserFacade;
 import db.entities.User;
-import java.util.ArrayList;
+import db.facades.UserFacade;
+import java.util.List;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import view.managebeans.LogForm;
-import view.managebeans.RegForm;
+import javax.ejb.Stateless;
 
-@ManagedBean(name="ManageUsers")
-@SessionScoped
-public class ManageUsers
-{
+@Stateless
+public class ManageUsers{
     @EJB
-    private IUserFacade userFacade;
-    
-    
+    private UserFacade userFacade;
+ 
     public ManageUsers(){
 
     }
     
-    public IUserFacade getUserFacade() {
-        return userFacade;
+    public boolean createUser(User user){
+        //delete comment after successfull existsUser method
+        /*if(!userFacade.existsUser(user.getLogin())){
+           userFacade.create(user); 
+           return true;
+        }*/
+        userFacade.create(user);
+        return true;
     }
 
-    public void setUserFacade(IUserFacade userFacade) {
-        this.userFacade = userFacade;
-    }
 
-
-    /*public boolean loginUser(LogForm user)
-    {
-        if(userFacade.existsUser(user)){
-            //create statefull bean
-            return true;
-        }
-        return false;  
+    public List<User> getUsers(){
+        return userFacade.findAll();
     }
-    public boolean createUser(RegForm newUser)
-    {
-        return userFacade.insertUser(newUser) ? true : false;
-    }
-    public ArrayList<User> printUsers()
-    {
-        return userFacade.getAllUsers();
-    }
-    public boolean logoutUser(String login)
-    {
-        return false;
-    }*/
-  
+   
+    
 }

@@ -5,6 +5,20 @@
  */
 package global.types;
 
-public enum Role {
-    ADMIN, USER;
+import java.io.Serializable;
+
+public enum Role implements Serializable {
+    ADMIN("ADMIN"), 
+    USER("ADMIN");
+    
+    private final String role;
+
+    private Role(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+    
 }

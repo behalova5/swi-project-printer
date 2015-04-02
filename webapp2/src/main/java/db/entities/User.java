@@ -1,36 +1,46 @@
 package db.entities;
 
-import global.types.Email;
-import global.types.Login;
-import global.types.Name;
-import global.types.Password;
-import global.types.Role;
-import global.types.Surname;
+import global.types.*;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author E589510
  */
-
 @Entity
+@Table(name="users")
 public class User implements Serializable
 {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+    
+    @Column(name = "email") 
     private Email email;
+    
+    @Column(name = "login") 
     private Login login;
+    
+    @Column(name = "passHash") 
     private Password passHash;
+    
+    @Column(name = "name") 
     private Name name;
+    
+    @Column(name = "surname") 
     private Surname surname;
-    private Role userRole;
+    
+    @Column(name = "role") 
+    private Role role;
 
     public Integer getId() {
         return id;
@@ -40,40 +50,40 @@ public class User implements Serializable
         this.id = id;
     }
 
-    public String getEmail() {
-        return email.getEmail();
+    public Email getEmail() {
+        return email;
     }
 
     public void setEmail(Email email) {
         this.email = email;
     }
 
-    public String getLogin() {
-        return login.getLogin();
+    public Login getLogin() {
+        return login;
     }
 
     public void setLogin(Login login) {
         this.login = login;
     }
 
-    public String getPassHash() {
-        return passHash.getPassword();
+    public Password getPassHash() {
+        return passHash;
     }
 
     public void setPassHash(Password passHash) {
         this.passHash = passHash;
     }
 
-    public String getName() {
-        return name.getName();
+    public Name getName() {
+        return name;
     }
 
     public void setName(Name name) {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname.getSurname();
+    public Surname getSurname() {
+        return surname;
     }
 
     public void setSurname(Surname surname) {
@@ -81,11 +91,11 @@ public class User implements Serializable
     }
 
     public Role getRole() {
-        return userRole;
+        return role;
     }
 
     public void setRole(Role role) {
-        this.userRole = role;
+        this.role = role;
     }
 
     @Override
@@ -104,25 +114,14 @@ public class User implements Serializable
             return false;
         }
         final User other = (User) obj;
-        if (!Objects.equals(this.login, other.login)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.login, other.login);
     }
-
- 
-
-   
-
-    
 
     
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email.getEmail() + ", login=" + login.getLogin() + ", passHash=" + passHash.getPassword() + ", name=" + name.getName() + ", surname=" + surname.getSurname() + ", role=" + userRole + '}';
+        return "User{" + "id=" + id + ", email=" + email + ", login=" + login + ", passHash=" + passHash + ", name=" + name + ", surname=" + surname + ", role=" + role + '}';
     }
-
-
 
 	
 }

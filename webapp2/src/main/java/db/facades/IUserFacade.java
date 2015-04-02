@@ -9,15 +9,17 @@ package db.facades;
 import db.abstr.facades.IAbstractFacade;
 import db.entities.User;
 import global.types.Login;
+import javax.ejb.Local;
 
 /**
  *
  * @author okalman
  */
+@Local
 public interface IUserFacade extends IAbstractFacade<User>{
 
     boolean existsUser(Login login);
 
-    User getUserByLogin(Login login);
+    User getUserByLogin(String login);
     
 }
