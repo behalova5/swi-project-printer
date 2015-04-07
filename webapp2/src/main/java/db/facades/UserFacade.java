@@ -56,16 +56,4 @@ public class UserFacade extends AbstractFacade<User>
         prom = em.createQuery("SELECT u FROM user u WHERE u.login.login = :login", User.class).setParameter("login", login.getLogin()).getMaxResults();
         return prom != 0;
     }
-
-    /* Kdo to sem dal? My databazisti urcite ne....
-    public boolean existsUser(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    //@Override
-    public User getUserByLogin(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
-	*/
 }

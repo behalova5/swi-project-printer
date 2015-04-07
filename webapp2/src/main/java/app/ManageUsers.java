@@ -2,6 +2,8 @@ package app;
 
 import db.entities.User;
 import db.facades.UserFacade;
+import global.types.Login;
+import global.types.Password;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -28,6 +30,13 @@ public class ManageUsers{
 
     public List<User> getUsers(){
         return userFacade.findAll();
+    }
+    
+    public boolean loginUser(Login login, Password pwd){
+        if(userFacade.getUserByLoginAndPassword(login, pwd)!=null){
+            return true;
+        }
+        return false;
     }
    
     
