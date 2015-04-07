@@ -6,7 +6,8 @@
 package global.types;
 
 import java.io.Serializable;
-
+import javax.persistence.Embeddable;
+@Embeddable
 public class Name implements Serializable{
     private String name;
     
