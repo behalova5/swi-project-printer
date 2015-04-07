@@ -20,12 +20,12 @@ import view.facades.RegFormFacade;
 public class RegForm implements Serializable
 {
     private static final long serialVersionUID = 1L;
-    private String email;
-    private String login;
-    private String pass;
-    private String name;
-    private String surname;
-    private String role;
+    private Email email;
+    private Login login;
+    private Password pass;
+    private Name name;
+    private Surname surname;
+    private Role role;
     private String message;
     
     @EJB
@@ -33,7 +33,13 @@ public class RegForm implements Serializable
     
 
     public RegForm() {
-        
+        this.email = new Email();
+        this.login = new Login();
+        this.pass = new Password();
+        this.name = new Name();
+        this.surname = new Surname();
+        this.message = "";
+        this.role = Role.ADMIN;
     }
     
     
@@ -50,55 +56,55 @@ public class RegForm implements Serializable
    
     @Override
     public String toString() {
-        return "RegForm{" + "email=" + email + ", login=" + login + ", pass=" + pass + ", name=" + name + ", surname=" + surname + ", role=" + role + '}';
+        return "RegForm{" + "email=" + email.toString() + ", login=" + login.toString() + ", pass=" + pass.toString() + ", name=" + name.toString() + ", surname=" + surname.toString() + ", role=" + role.toString() + '}';
     }
 
     public String getEmail() {
-        return email;
+        return this.email.getEmail();
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = new Email(email);
     }
 
     public String getLogin() {
-            return login;
+            return this.login.getLogin();
     }
 
     public void setLogin(String login) {
-        this.login = login;
+        this.login = new Login(login);
     }
 
     public String getPass() {
-            return pass;
+            return this.pass.getPassword();
     }
 
     public void setPass(String pass) {
-        this.pass = pass;
+        this.pass = new Password(pass);
     }
 
     public String getName() {
-        return name;
+        return this.name.getName();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = new Name(name);
     }
 
     public String getSurname() {
-        return surname;
+        return this.surname.getSurname();
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        this.surname = new Surname(surname);
     }
 
     public String getRole() {
-        return role;
+        return this.role.getRole();
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.role = Role.valueOf(role);
     }
 
     public RegFormFacade getFacade() {
@@ -115,12 +121,12 @@ public class RegForm implements Serializable
    
     public boolean createUser(){
         User user = new User();
-        user.setEmail(new Email(email));
-        user.setLogin(new Login(login));
-        user.setName(new Name(name));
-        user.setPassHash(new Password(pass));
-        user.setRole(Role.valueOf(role));
-        user.setSurname(new Surname(surname));
+        user.setEmail(this.email);
+        user.setLogin(this.login);
+        user.setName(this.name);
+        user.setPassHash(this.pass);
+        user.setRole(this.role);
+        user.setSurname(this.surname);
         return getFacade().createUser(user);
     }
 

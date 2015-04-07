@@ -10,9 +10,11 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Email implements Serializable{
     private String email;
-
-    public Email() {
+    
+    public Email(){
+        this.email = "";
     }
+    
     public Email(String email){
         this.email = email;
     }

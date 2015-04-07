@@ -1,5 +1,7 @@
 package view.managebeans;
 
+import global.types.Login;
+import global.types.Password;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.faces.bean.ManagedBean;
@@ -11,9 +13,16 @@ import javax.faces.bean.RequestScoped;
 public class LogForm implements Serializable{
   
     private static final long serialVersionUID = 1L;
-    private String login;
-    private String pass;
+    private Login login;
+    private Password pass;
     private String message;
+    
+    public LogForm(){
+        this.login = new Login();
+        this.pass = new Password();
+        this.message = "";
+        
+    }
     
     public String sendForm() {
           message = "Uživatel " + getLogin() + " přihlášen.";
@@ -22,22 +31,22 @@ public class LogForm implements Serializable{
     
     public String getLogin()
     {
-            return login;
+            return login.getLogin();
     }
 
     public void setLogin(String login)
     {
-            this.login = login;
+            this.login = new Login(login);
     }
 
     public String getPass()
     {
-            return pass;
+            return this.pass.getPassword();
     }
 
     public void setPass(String pass)
     {
-            this.pass = pass;
+            this.pass = new Password(pass);
     }
 
     public String getMessage() {
@@ -52,8 +61,8 @@ public class LogForm implements Serializable{
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.login);
-        hash = 89 * hash + Objects.hashCode(this.pass);
+        hash = 89 * hash + Objects.hashCode(this.login.getLogin());
+        hash = 89 * hash + Objects.hashCode(this.pass.getPassword());
         return hash;
     }
 
@@ -66,10 +75,10 @@ public class LogForm implements Serializable{
             return false;
         }
         final LogForm other = (LogForm) obj;
-        if (!Objects.equals(this.login, other.login)) {
+        if (!Objects.equals(this.login.getLogin(), other.login.getLogin())) {
             return false;
         }
-        if (!Objects.equals(this.pass, other.pass)) {
+        if (!Objects.equals(this.pass.getPassword(), other.pass.getPassword())) {
             return false;
         }
         return true;
@@ -77,7 +86,7 @@ public class LogForm implements Serializable{
 
     @Override
     public String toString() {
-        return "LogForm{" + "login=" + login + ", pass=" + pass + '}';
+        return "LogForm{" + "login=" + login.toString() + ", pass=" + pass.toString() + '}';
     }
 
 

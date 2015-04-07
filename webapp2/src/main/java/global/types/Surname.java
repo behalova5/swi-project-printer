@@ -6,14 +6,15 @@
 package global.types;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
-@Embeddable
+
 public class Surname implements Serializable {
     
     private String surname;
-
-    public Surname() {
+    
+    public Surname(){
+     this.surname = "";   
     }
+    
     public Surname(String surname){
         this.surname = surname;
     }

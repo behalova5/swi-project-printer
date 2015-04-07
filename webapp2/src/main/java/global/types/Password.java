@@ -6,13 +6,14 @@
 package global.types;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
-@Embeddable
+
 public class Password implements Serializable{
     private String password;
-
+    
     public Password() {
+        this.password = "";
     }
+    
     public Password(String password) {
         this.password = password;
     }

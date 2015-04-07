@@ -14,6 +14,10 @@ public class Login implements Serializable{
     public Login() {
     }
     
+    public Login(){
+        this.login = "";
+    }
+    
     public Login(String login){
         this.login = login;
     }
