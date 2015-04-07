@@ -9,6 +9,7 @@ package db.facades;
 import db.abstr.facades.IAbstractFacade;
 import db.entities.User;
 import global.types.Login;
+import global.types.Password;
 import javax.ejb.Local;
 
 /**
@@ -21,5 +22,5 @@ public interface IUserFacade extends IAbstractFacade<User>{
     boolean existsUser(Login login);
 
     User getUserByLogin(String login);
-    
+    User getUserByLoginAndPassword(Login login, Password password);
 }

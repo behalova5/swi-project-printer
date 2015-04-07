@@ -6,9 +6,13 @@
 package global.types;
 
 import java.io.Serializable;
-
+import javax.persistence.Embeddable;
+@Embeddable
 public class Email implements Serializable{
     private String email;
+
+    public Email() {
+    }
     public Email(String email){
         this.email = email;
     }

@@ -4,6 +4,7 @@ import global.types.*;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,25 +22,24 @@ public class User implements Serializable
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Embedded
     private Integer id;
     
-    @Column(name = "email") 
+    @Embedded
     private Email email;
     
-    @Column(name = "login") 
+    @Embedded
     private Login login;
     
-    @Column(name = "passHash") 
+    @Embedded
     private Password passHash;
     
-    @Column(name = "name") 
+    @Embedded
     private Name name;
     
-    @Column(name = "surname") 
+    @Embedded
     private Surname surname;
     
-    @Column(name = "role") 
     private Role role;
 
     public Integer getId() {

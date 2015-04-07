@@ -26,26 +26,38 @@ public class UserFacade extends AbstractFacade<User>
             super(User.class);
     }
     
+        
     public User getUserByLogin(Login login)
     {
        try {
-            return (User) em.createQuery("SELECT * FROM user WHERE login = :login")
-                    .setParameter(":login", login)
+            return (User) em.createQuery("SELECT * FROM user u WHERE u.login.login = :login")
+                    .setParameter(":login", login.getLogin())
                     .getSingleResult();
         } catch (Exception e) {
             return null;
         }
     }
     
-    //@Override
+    public User getUserByLoginAndPassword(Login login, Password password)
+    {
+       try {
+            return (User) em.createQuery("SELECT * FROM user u WHERE u.login.login = :login AND u.passHash.password = :password")
+                    .setParameter(":login", login.getLogin())
+                    .setParameter(":password", password.getPassword())
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
     public boolean existsUser(Login login) {
         //getMaxResults returns LIMIT clause from sql, it doesnt execute query
         int prom;
-        prom = em.createQuery("SELECT u FROM User u WHERE u.login = :login", User.class).setParameter("login", login).getMaxResults();
+        prom = em.createQuery("SELECT u FROM user u WHERE u.login.login = :login", User.class).setParameter("login", login.getLogin()).getMaxResults();
         return prom != 0;
     }
 
-    
+    /* Kdo to sem dal? My databazisti urcite ne....
     public boolean existsUser(String login) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -55,5 +67,5 @@ public class UserFacade extends AbstractFacade<User>
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
-	
+	*/
 }
