@@ -1,12 +1,14 @@
 package db.abstr.facades;
 
 import java.util.List;
+import javax.ejb.Remote;
 import javax.persistence.EntityManager;
 
 /**
  *
  * @author E589510
  */
+@Remote
 public abstract class AbstractFacade<T> implements IAbstractFacade<T>
 {
     private Class<T> entityClass;

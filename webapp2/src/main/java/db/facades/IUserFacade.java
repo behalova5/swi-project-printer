@@ -20,7 +20,5 @@ import javax.ejb.Local;
 public interface IUserFacade extends IAbstractFacade<User>{
 
     boolean existsUser(Login login);
-
-    User getUserByLogin(String login);
     User getUserByLoginAndPassword(Login login, Password password);
 }

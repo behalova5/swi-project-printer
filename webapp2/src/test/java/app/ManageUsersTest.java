@@ -26,35 +26,31 @@ public class ManageUsersTest {
     ManageUsers manager;
     @Before
     public void setUp() {
+        
+         User user= new User();
+         user.setEmail(new Email("neco@neco.com"));
+         user.setId(Integer.SIZE);
+         user.setLogin(new Login("User"));
+         user.setPassHash(new Password("user"));
+         user.setRole(Role.ADMIN);
+         user.setName(new Name("Jmeno"));
+         user.setSurname(new Surname("Prijmeni"));
+         ArrayList<User>list = new ArrayList<User>();
+         list.add(user);
+         final User fUser=user;
+         final ArrayList<User>fList=list;
         facade = new IUserFacade() {
-            User user= new User();
-            ArrayList<User>list = new ArrayList<User>();
+          
             
             void IUserFacade(){
-                user.setEmail(new Email("neco@neco.com"));
-                user.setId(Integer.SIZE);
-                user.setLogin(new Login("User"));
-                user.setPassHash(new Password("user"));
-                user.setRole(Role.ADMIN);
-                user.setName(new Name("Jmeno"));
-                user.setSurname(new Surname("Prijmeni"));
+               
             }
         
             @Override
             public boolean existsUser(Login login) {
-                return user.getLogin().equals(login);
+                return fUser.getLogin().equals(login);
             }
 
-            @Override
-            public User getUserByLogin(String login) {
-                
-                
-                if(user.getLogin().equals(login)){
-                    return user;
-                }else{
-                    return null;
-                }
-            }
 
             @Override
             public int count() {
@@ -78,8 +74,8 @@ public class ManageUsersTest {
 
             @Override
             public List<User> findAll() {
-                list.add(user)  ;
-                return list  ;
+                
+                return fList  ;
             }
 
             @Override
@@ -94,11 +90,15 @@ public class ManageUsersTest {
 
             @Override
             public User getUserByLoginAndPassword(Login login, Password password) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               if(fUser.getLogin().toString().equals(login.toString()) && fUser.getPassHash().toString().equals(password.toString())){
+                   return fUser;
+               }else{
+                   return null;
+               }
             }
         };
          manager = new ManageUsers();
-         //manager.setUserFacade(facade);
+         manager.setUserFacade(facade);
          
     }
     

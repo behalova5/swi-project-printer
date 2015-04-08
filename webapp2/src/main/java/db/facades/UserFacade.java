@@ -1,16 +1,17 @@
 package db.facades;
 
-import global.types.*;
 import db.abstr.facades.AbstractFacade;
 import db.entities.User;
+import global.types.*;
 import javax.ejb.LocalBean;
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 
 @Stateless
-public class UserFacade extends AbstractFacade<User>
+public class UserFacade extends AbstractFacade<User> implements IUserFacade 
 {
     @PersistenceContext(unitName = "swi-project-printerPU")
     private EntityManager em;
@@ -56,4 +57,5 @@ public class UserFacade extends AbstractFacade<User>
         prom = em.createQuery("SELECT u FROM user u WHERE u.login.login = :login", User.class).setParameter("login", login.getLogin()).getMaxResults();
         return prom != 0;
     }
+
 }

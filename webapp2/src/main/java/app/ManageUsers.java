@@ -1,6 +1,7 @@
 package app;
 
 import db.entities.User;
+import db.facades.IUserFacade;
 import db.facades.UserFacade;
 import global.types.Login;
 import global.types.Password;
@@ -11,11 +12,17 @@ import javax.ejb.Stateless;
 @Stateless
 public class ManageUsers{
     @EJB
-    private UserFacade userFacade;
+    private IUserFacade userFacade;
+    
  
     public ManageUsers(){
 
     }
+    
+    public void setUserFacade(IUserFacade facade){
+       userFacade=facade;
+    }
+
     
     public boolean createUser(User user){
         //delete comment after successfull existsUser method
