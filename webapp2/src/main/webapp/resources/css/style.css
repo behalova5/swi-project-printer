@@ -1,0 +1,90 @@
+body {
+    font-family: arial;
+    background: #263248;
+}
+
+table {
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+}
+table th {
+    
+}
+table td {
+    border: 1px solid #fff;
+}
+
+#LogForm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    width: 200px;
+    height: 200px;
+    padding: 80px;
+    border: solid 10px #1C2536;
+    color: white;
+    font-size: 15px;   
+}
+
+#RegForm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -300px;
+    margin-left: -200px;
+    width: 200px;
+    height: 400px;
+    padding: 80px;
+    border: solid 10px #1C2536;
+    color: white;
+    font-size: 15px; 
+}
+
+#registrace_opravneni_list {
+    
+}
+
+.text_field {
+    margin-top: 0px;
+    height: 25px;
+    width: 200px;
+    background: #7E8AA2;
+}
+
+.buttons {
+    margin-top: 15px;
+    height: 30px;
+    width: 205px;
+    background: #FF9800;
+}
+
+
+
+
+
+/* LAY-OUT */
+div.stranka { width: 998px; position: relative; margin: 20px auto; border-radius: 10px; background: #444444; }
+#contentwrapper { float: left; width: 100%; }
+#contentcolumn { margin-right: 220px; background: white; border-radius: 10px 0 10px 0; padding: 15px 20px; min-height: 720px; }
+#rightcolumn { float: left; width: 200px; margin-left: -220px; color: #AAAAAA; padding: 15px 10px }
+#footer { clear: left; width: 100%; color: #AAAAAA; text-align: center; padding: 10px 0; font-size: 13px; }
+
+/* NADPISY */
+h1 { font-size: 30px; margin: 0; padding: 0 0 20px 0; color: #444444; }
+h2 { font-size: 18px; margin: 0; padding: 20px 0 0 0; color: white; font-family: Tahoma, Geneva, sans-serif; }
+h2:first-child { padding: 0; }
+
+/* MENU */
+#rightcolumn ul { list-style-type: none; margin-top: 10px; }
+#rightcolumn li { margin-left: -39px; border-bottom: thin dashed gray; font-size: 17px; line-height: 2.2; }
+#rightcolumn a { color: #AAAAAA; text-decoration: none }
+#rightcolumn a:hover { text-decoration: underline; }
+#rightcolumn p { font-size: 15px; }
+#rightcolumn li img { margin-top: 8px; padding-right: 7px; float: left; }
+
+div.stred { text-align: center; margin-top: 15px; }
+input.mtlacitko { cursor: pointer; -webkit-appearance: button; font-family: calibri; font-weight: bold; background-color: #006dcc; font-size: 13px; padding: 10px 20px; text-shadow: 0 -1px 0 rgba(0,0,0,0.25); color: white; background-image: linear-gradient(to bottom,#08c,#04c); background-repeat: repeat-x; border-radius: 4px; border: none; }
+input.mtlacitko:hover { background-position: 0 -15px; transition: background-position .1s linear; background-color: #04c; }

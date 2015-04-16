@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+        
+    <h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Správa uživatelů</title>
+    </h:head>
+    
+    <h:body>
+        <div class="">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>Email</th>
+                        <th>Příjmení</th>
+                        <th>Jméno</th>
+                        <th>Oprávnění</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ui:repeat value="#{manageUsers.allUsers}" var ="user">
+                        <tr>
+                            <td>#{user.login}</td>
+                            <td>#{user.email}</td>
+                            <td>#{user.surname}</td>
+                            <td>#{user.name}</td>
+                            <td>#{user.role}</td>
+                        </tr>
+                    </ui:repeat>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </h:body>
+    
+</html>

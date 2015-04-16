@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        
+    <h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Registrace nového uživatele</title>
+    </h:head>
+    
+    <h:body>
+        <h:form id="RegForm">
+            <div style="position: absolute; top: 0; left: 95px; margin-top: 40px; font-size: 20px;">Registrační formulář</div>
+            <p></p>
+            <p>Login<h:inputText class="text_field" id="registrace_login" required="true" value="#{RegForm.login}" /></p>
+            <p></p>
+            <p>Heslo<h:inputSecret class="text_field" id="registrace_heslo" required="true" value="#{RegForm.pass}" /></p>
+            <p></p>
+            <p>Jméno<h:inputText class="text_field" id="registrace_jmeno" required="true" value="#{RegForm.name}" /></p>
+            <p></p>
+            <p>Přijmení<h:inputText class="text_field" id="registrace_prijmeni" required="true" value="#{RegForm.surname}" /></p>
+            <p></p>
+            <p>E-mail<h:inputText class="text_field" id="registrace_email" required="true" value="#{RegForm.email}" /></p>
+            <p></p>
+            <p>Oprávnení<h:selectOneMenu class="text_field" id="registrace_opravneni" value="#{RegForm.role}"> 
+                    <f:selectItems value="#{RegForm.rolesValue}" />
+            </h:selectOneMenu></p>  
+            
+            <p></p>
+            <h:commandButton class="buttons" id="login_button" value="Zaregistrovat" action="#{RegForm.sendForm()}"/> 
+        </h:form>
+        #{RegForm.message}
+    </h:body>
+    
+</html>
