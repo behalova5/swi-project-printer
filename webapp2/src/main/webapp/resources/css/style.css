@@ -43,8 +43,18 @@ table td {
     font-size: 15px; 
 }
 
-#registrace_opravneni_list {
-    
+#AddModelForm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -300px;
+    margin-left: -200px;
+    width: 200px;
+    height: 400px;
+    padding: 80px;
+    border: solid 10px #1C2536;
+    color: white;
+    font-size: 15px; 
 }
 
 .text_field {

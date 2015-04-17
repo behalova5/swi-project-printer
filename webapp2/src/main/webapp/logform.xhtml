@@ -12,11 +12,11 @@
         <h:form id="LogForm">
            <div style="position: absolute; top: 0; left: 65px; margin-top: 40px; font-size: 20px;">SWI PROJECT PRINTER</div>
             <p></p>
-            <p>Jméno<h:inputText class="text_field" required="true" id="prihlaseni_login" value="#{LogForm.login}" /></p>
+            <p>Login:<h:inputText class="text_field" required="true" id="prihlaseni_login" value="#{LogForm.login}" /></p>
             <p></p>
-            <p>Heslo<h:inputSecret class="text_field" required="true" id="prihlaseni_heslo" value="#{LogForm.pass}" /></p>
+            <p>Password:<h:inputSecret class="text_field" required="true" id="prihlaseni_heslo" value="#{LogForm.pass}" /></p>
             <p></p>
-            <h:commandButton class="buttons" id="login_button" value="Přihlásit" action="#{LogForm.sendForm()}"/>
+            <h:commandButton class="buttons" id="login_button" value="Log in" action="#{LogForm.sendForm()}"/>
         </h:form>
     </h:body>
     
