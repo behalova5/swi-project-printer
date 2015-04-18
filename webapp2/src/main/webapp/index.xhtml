@@ -21,21 +21,22 @@
         <div id="rightcolumn">
             <h2>Navigační menu</h2>
             <ul>
-                <li><a href="index.xhtml">Seznam modelù</a></li>
-                <li><a href="#">Tiskové fronty</a></li>
-                <li></li>
-                <li><a href="manageUsers.xhtml">Správa uživatelù</a></li>
-                <li><a href="logform.xhtml">Přihlášení</a></li>
-                <li><a href="regform.xhtml">Registrace uživatele</a></li>
-                <li></li>
-                <li><a href="#">Správa notifikací</a></li>
+                <li><a href="modelsview.xhtml">Model list</a></li>
+                <li><a href="addmodelform.xhtml">Add new model</a></li>
+                <li>---</li>
+                <li><a href="#">Print queue</a></li>
+                <li>---</li>
+                <li><a href="manageusers.xhtml">Manage users</a></li>
+                <li><a href="logform.xhtml">Log in</a></li>
+                <li><a href="regform.xhtml">Register new user</a></li>
+                <li>---</li>
+                <li><a href="#">Manage notifications</a></li>
                 <c:if test="${index.role == 'USER'}">
-                    <li><a href="#">Správa barev</a></li>
-                </c:if>
-                
+                <li><a href="#">Manage colors</a></li>
+                 </c:if>
             </ul>
             <div class="stred">
-                <input class="buttons" type="button" title="Odhlásit se" value="Odhlásit se"/>
+                <input class="buttons" type="button" title="Log off" value="Log off"/>
             </div>
         </div>     
 	<div id="footer">&copy; MENDELU</div>

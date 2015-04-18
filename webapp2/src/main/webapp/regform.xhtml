@@ -14,22 +14,23 @@
             <p></p>
             <p>Login<h:inputText class="text_field" id="registrace_login" required="true" value="#{RegForm.login}" /></p>
             <p></p>
-            <p>Heslo<h:inputSecret class="text_field" id="registrace_heslo" required="true" value="#{RegForm.pass}" /></p>
+            <p>Password<h:inputSecret class="text_field" id="registrace_heslo" required="true" value="#{RegForm.pass}" /></p>
             <p></p>
-            <p>Jméno<h:inputText class="text_field" id="registrace_jmeno" required="true" value="#{RegForm.name}" /></p>
+            <p>Name<h:inputText class="text_field" id="registrace_jmeno" required="true" value="#{RegForm.name}" /></p>
             <p></p>
-            <p>Přijmení<h:inputText class="text_field" id="registrace_prijmeni" required="true" value="#{RegForm.surname}" /></p>
+            <p>Surname<h:inputText class="text_field" id="registrace_prijmeni" required="true" value="#{RegForm.surname}" /></p>
             <p></p>
-            <p>E-mail<h:inputText class="text_field" id="registrace_email" required="true" value="#{RegForm.email}" /></p>
+            <p>Email<h:inputText class="text_field" id="registrace_email" required="true" value="#{RegForm.email}" /></p>
             <p></p>
-            <p>Oprávnení<h:selectOneMenu class="text_field" id="registrace_opravneni" value="#{RegForm.role}"> 
+            <p>Privileges<h:selectOneMenu class="text_field" id="registrace_opravneni" value="#{RegForm.role}"> 
                     <f:selectItems value="#{RegForm.rolesValue}" />
             </h:selectOneMenu></p>  
             
             <p></p>
-            <h:commandButton class="buttons" id="login_button" value="Zaregistrovat" action="#{RegForm.sendForm()}"/> 
+            <h:commandButton class="buttons" id="login_button" value="Register" action="#{RegForm.sendForm()}"/> 
         </h:form>
-        #{RegForm.message}
+        <div style="position: absolute; top: 0; left: 95px; margin-top: 40px; font-size: 20px; color: red;">#{RegForm.message}</div>
+        
     </h:body>
     
 </html>
