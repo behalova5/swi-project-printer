@@ -9,7 +9,8 @@ import java.io.Serializable;
 
 public enum Role implements Serializable {
     ADMIN("ADMIN"), 
-    USER("USER");
+    USER("USER"),
+    GUEST("GUEST");
     
     private final String role;
 
