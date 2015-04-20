@@ -1,7 +1,12 @@
 package view.facades;
 
-import view.managebeans.LogForm;
+import app.ManageUsers;
+import global.types.Login;
+import global.types.Password;
+import global.types.Role;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import view.managebeans.LogForm;
 
 /**
  *
@@ -9,7 +14,9 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class LogFormFacade {
-
+    
+    @EJB
+    ManageUsers manageUsers;
 
     public LogFormFacade()
     {
@@ -19,6 +26,10 @@ public class LogFormFacade {
     public LogForm getLogForm()
     {
         return null;
+    }
+    
+    public Role loginUser(Login login, Password password){
+        return manageUsers.loginUser(login, password);
     }
 	
 }

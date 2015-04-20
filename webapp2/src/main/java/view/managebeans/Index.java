@@ -5,10 +5,14 @@
  */
 package view.managebeans;
 
-import javax.enterprise.context.SessionScoped;
+import global.types.Role;
 import java.io.Serializable;
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import view.states.ILoginState;
+import view.states.LoginState;
 
 
 @ManagedBean(name="index")
@@ -18,6 +22,8 @@ public class Index implements Serializable {
     @ManagedProperty(value="#{RegForm}")
     private RegForm regForm;
     
+    @ManagedProperty(value="#{LogForm}")
+    private LogForm logForm;
 
     
     private static final long serialVersionUID = 1L;
@@ -28,7 +34,19 @@ public class Index implements Serializable {
     public Index() {
     }
     
- 
+    public Role getRole(){
+     Role role = logForm.getRole();
+     return logForm.getRole();
+    }
+    
+    public LogForm getLogForm() {
+        return logForm;
+    }
+
+    public void setLogForm(LogForm logForm) {
+        this.logForm = logForm;
+    }
+    
 
     public RegForm getRegForm() {
         return regForm;

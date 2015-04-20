@@ -2,20 +2,37 @@ package view.managebeans;
 
 import global.types.Login;
 import global.types.Password;
+import global.types.Role;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
+import view.facades.LogFormFacade;
+import view.states.ILoginState;
+import view.states.LoginState;
 
 @ManagedBean(name="LogForm")
 @RequestScoped
 
 public class LogForm implements Serializable{
+    
+    @EJB
+    ILoginState loginState;
+    
+    @EJB
+    LogFormFacade facade;
   
     private static final long serialVersionUID = 1L;
     private Login login;
     private Password pass;
     private String message;
+    
+    public Role getRole(){
+        return loginState.getRole();
+    } 
     
     public LogForm(){
         this.login = new Login();
@@ -24,9 +41,19 @@ public class LogForm implements Serializable{
         
     }
     
-    public String sendForm() {
-          message = "Uživatel " + getLogin() + " přihlášen.";
-          return "index";       
+    public String sendForm() 
+{
+        Role role=facade.loginUser(login, pass);
+        if(role !=null){
+           message = "Uživatel " + getLogin() + " přihlášen.";
+           loginState.setLogin(login);
+           loginState.setRole(role);
+            return "index";    
+        }else{
+            throw new RuntimeException("invalid login or password");
+        }
+         
+            
     }
     
     public String getLogin()

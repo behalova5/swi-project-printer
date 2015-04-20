@@ -31,10 +31,13 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
     public User getUserByLogin(Login login)
     {
        try {
-            return (User) em.createQuery("SELECT * FROM user u WHERE u.login.login = :login")
-                    .setParameter(":login", login.getLogin())
+           User user= (User) em.createQuery("SELECT u FROM User u WHERE u.login.login = :login")
+                    .setParameter("login", login.getLogin())
                     .getSingleResult();
+           System.out.println(user.getName());
+            return user;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -42,7 +45,7 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
     public User getUserByLoginAndPassword(Login login, Password password)
     {
        try {
-            return (User) em.createQuery("SELECT * FROM user u WHERE u.login.login = :login AND u.passHash.password = :password")
+            return (User) em.createQuery("SELECT * FROM USERS u WHERE u.login.login = :login AND u.passHash.password = :password")
                     .setParameter(":login", login.getLogin())
                     .setParameter(":password", password.getPassword())
                     .getSingleResult();

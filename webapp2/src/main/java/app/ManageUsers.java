@@ -5,6 +5,7 @@ import db.facades.IUserFacade;
 import db.facades.UserFacade;
 import global.types.Login;
 import global.types.Password;
+import global.types.Role;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -44,11 +45,13 @@ public class ManageUsers{
         return userFacade.findAll();
     }
     
-    public boolean loginUser(Login login, Password pwd){
-        if(userFacade.getUserByLoginAndPassword(login, pwd)!=null){
-            return true;
+    public Role loginUser(Login login, Password pwd){
+        User user = userFacade.getUserByLogin(login);
+        
+        if(user!=null){
+            return user.getRole();
         }
-        return false;
+        return null;
     }
    
     

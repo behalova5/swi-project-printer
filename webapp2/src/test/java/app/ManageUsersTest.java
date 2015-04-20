@@ -96,6 +96,11 @@ public class ManageUsersTest {
                    return null;
                }
             }
+
+             @Override
+             public User getUserByLogin(Login login) {
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
         };
          manager = new ManageUsers();
          manager.setUserFacade(facade);
@@ -114,7 +119,7 @@ public class ManageUsersTest {
        Login login = new Login("User");
        Password pwd = new Password("user");
         
-        assertTrue("Login for existing user failed: ", manager.loginUser(login, pwd));       
+        assertNotNull("Login for existing user failed: ", manager.loginUser(login, pwd));       
     }
     
     @Test
@@ -122,14 +127,14 @@ public class ManageUsersTest {
         Login login = new Login("Userg");
        Password pwd = new Password("user");
      
-        assertFalse("Login for non-existing user failed: ", manager.loginUser(login, pwd));       
+        assertNull("Login for non-existing user failed: ", manager.loginUser(login, pwd));       
     }
     @Test
     public void testLoginWrongPassword() {
         Login login = new Login("User");
         Password pwd = new Password("userr");
      
-        assertFalse("Login for non-existing user failed: ", manager.loginUser(login, pwd));       
+        assertNull("Login for non-existing user failed: ", manager.loginUser(login, pwd));       
     }
     
     @Test

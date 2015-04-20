@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <h:head>
         <h:outputStylesheet library="css" name="style.css"/>
@@ -20,18 +21,22 @@
         <div id="rightcolumn">
             <h2>Navigační menu</h2>
             <ul>
-                <li><a href="index.xhtml">Seznam modelù</a></li>
-                <li><a href="#">Tiskové fronty</a></li>
-                <li></li>
-                <li><a href="manageUsers.xhtml">Správa uživatelù</a></li>
-                <li><a href="logform.xhtml">Přihlášení</a></li>
-                <li><a href="regform.xhtml">Registrace uživatele</a></li>
-                <li></li>
-                <li><a href="#">Správa notifikací</a></li>
-                <li><a href="#">Správa barev</a></li>
+                <li><a href="modelsview.xhtml">Model list</a></li>
+                <li><a href="addmodelform.xhtml">Add new model</a></li>
+                <li>---</li>
+                <li><a href="#">Print queue</a></li>
+                <li>---</li>
+                <li><a href="manageusers.xhtml">Manage users</a></li>
+                <li><a href="logform.xhtml">Log in</a></li>
+                <li><a href="regform.xhtml">Register new user</a></li>
+                <li>---</li>
+                <li><a href="#">Manage notifications</a></li>
+                <c:if test="${index.role == 'USER'}">
+                <li><a href="#">Manage colors</a></li>
+                 </c:if>
             </ul>
             <div class="stred">
-                <input class="buttons" type="button" title="Odhlásit se" value="Odhlásit se"/>
+                <input class="buttons" type="button" title="Log off" value="Log off"/>
             </div>
         </div>     
 	<div id="footer">&copy; MENDELU</div>
