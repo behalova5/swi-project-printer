@@ -10,13 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import org.eclipse.persistence.annotations.PrimaryKey;
 
 /**
  *
  * @author E589510
  */
 @Entity
-@Table(name="users")
+@Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
 public class User implements Serializable
 {
     private static final long serialVersionUID = 1L;

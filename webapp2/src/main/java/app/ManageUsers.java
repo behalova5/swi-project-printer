@@ -30,8 +30,13 @@ public class ManageUsers{
            userFacade.create(user); 
            return true;
         }*/
-        userFacade.create(user);
-        return true;
+        try {
+            userFacade.create(user);
+            return  true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
 

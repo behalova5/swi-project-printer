@@ -127,7 +127,12 @@ public class RegForm implements Serializable
         user.setPassHash(this.pass);
         user.setRole(this.role);
         user.setSurname(this.surname);
-        return getFacade().createUser(user);
+        try {
+            return getFacade().createUser(user);
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     public String getMessage() {
