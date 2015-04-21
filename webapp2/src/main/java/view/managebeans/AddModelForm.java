@@ -8,7 +8,6 @@ import global.types.ModelData;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Model;
 import javax.faces.bean.ManagedBean;
 import view.facades.AddModelFormFacade;
 
@@ -46,7 +45,7 @@ public class AddModelForm implements Serializable {
     }
    
     public String toFloat() {
-        return "AddModelForm{" + "scale=" + scale.toFloat() + '}';
+        return "AddModelForm{" + "scale=" + scale.getScale() + '}';
     }
 
     public ModelName getModelName() {
@@ -106,7 +105,7 @@ public class AddModelForm implements Serializable {
     }
     
     public boolean AddModel(){
-        Model model = new Model() {};
+        Model model = new Model();
         model.setModelName(this.modelName);
         model.setColor(this.color);
         model.setScale(this.scale);

@@ -2,7 +2,6 @@ package app;
 
 import db.entities.User;
 import db.facades.IUserFacade;
-import db.facades.UserFacade;
 import global.types.Login;
 import global.types.Password;
 import global.types.Role;
@@ -26,18 +25,12 @@ public class ManageUsers{
 
     
     public boolean createUser(User user){
-        //delete comment after successfull existsUser method
-        /*if(!userFacade.existsUser(user.getLogin())){
-           userFacade.create(user); 
-           return true;
-        }*/
-        try {
+       try {
             userFacade.create(user);
-            return  true;
-        }
-        catch (Exception e){
+        } catch (Exception e){
             return false;
         }
+        return true;
     }
 
 

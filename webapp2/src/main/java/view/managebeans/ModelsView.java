@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import view.facades.ManageModelsFacade;
+import view.facades.ModelViewFacade;
 
 
 @ManagedBean(name="modelsview")
@@ -15,7 +15,7 @@ public class ModelsView implements Serializable {
 
     
     @EJB
-    private ManageModelsFacade manageModelsFacade;
+    private ModelViewFacade manageModelsFacade;
     
     public ModelsView() {
         
