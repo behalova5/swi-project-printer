@@ -28,10 +28,11 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
     }
     
         
+    @Override
     public User getUserByLogin(Login login)
     {
        try {
-           User user= (User) em.createQuery("SELECT u FROM User u WHERE u.login.login = :login")
+           User user= (User) em.createQuery("SELECT * FROM Model u WHERE u.login.login = :login")
                     .setParameter("login", login.getLogin())
                     .getSingleResult();
            System.out.println(user.getName());
@@ -54,6 +55,7 @@ public class UserFacade extends AbstractFacade<User> implements IUserFacade
         }
     }
     
+    @Override
     public boolean existsUser(Login login) {
         //getMaxResults returns LIMIT clause from sql, it doesnt execute query
         int prom;

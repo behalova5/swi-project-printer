@@ -5,13 +5,12 @@
  */
 package db.facades;
 
+import db.abstr.facades.IAbstractFacade;
 import db.entities.Model;
-import java.util.List;
+import javax.ejb.Local;
 
-public interface IModelFacade {
-
-    public void create(Model model);
-
-    public List<Model> findAll();
-    
+@Local
+public interface IModelFacade extends IAbstractFacade<Model>{
+    public Model getModelById(int IDmodel);
+    public boolean existsModel(int IDmodel);
 }

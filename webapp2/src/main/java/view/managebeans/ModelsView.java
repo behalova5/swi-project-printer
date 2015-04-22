@@ -22,7 +22,7 @@ public class ModelsView implements Serializable {
     }
 
     public List<Model> getManageModel(){
-       return manageModelsFacade.getModels();
+       return manageModelsFacade.getListOfModels();
     }
     
 }

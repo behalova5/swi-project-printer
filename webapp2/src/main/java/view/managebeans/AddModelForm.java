@@ -110,6 +110,6 @@ public class AddModelForm implements Serializable {
         model.setColor(this.color);
         model.setScale(this.scale);
         model.setModelData(this.modelData);
-        return getFacade().AddModel(model);
+        return getFacade().addModel(model);
     }
 }

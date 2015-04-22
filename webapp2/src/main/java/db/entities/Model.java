@@ -5,7 +5,13 @@
  */
 package db.entities;
 
+import global.types.Color;
+import global.types.Date;
+import global.types.ModelData;
+import global.types.ModelName;
+import global.types.Scale;
 import java.io.Serializable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +23,82 @@ public class Model implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @Embedded
+    private Color color;
+    
+    @Embedded
+    private Date date;
+    
+    private int IDmodel;
+    
+    @Embedded
+    private ModelData modelData;
+    
+    @Embedded
+    private ModelName modelName;
+    
+    @Embedded
+    private Scale scale;
+    
+    @Embedded
+    private User user;
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getIDmodel() {
+        return IDmodel;
+    }
+
+    public void setIDmodel(int IDmodel) {
+        this.IDmodel = IDmodel;
+    }
+
+    public ModelData getModelData() {
+        return modelData;
+    }
+
+    public void setModelData(ModelData modelData) {
+        this.modelData = modelData;
+    }
+
+    public ModelName getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(ModelName modelName) {
+        this.modelName = modelName;
+    }
+
+    public Scale getScale() {
+        return scale;
+    }
+
+    public void setScale(Scale scale) {
+        this.scale = scale;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;

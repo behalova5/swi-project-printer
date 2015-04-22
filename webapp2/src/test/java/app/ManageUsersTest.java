@@ -88,14 +88,14 @@ public class ManageUsersTest {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
-            @Override
+            /*@Override
             public User getUserByLoginAndPassword(Login login, Password password) {
                if(fUser.getLogin().toString().equals(login.toString()) && fUser.getPassHash().toString().equals(password.toString())){
                    return fUser;
                }else{
                    return null;
                }
-            }
+            }*/ //tohle uz tu nema co delat
 
              @Override
              public User getUserByLogin(Login login) {
