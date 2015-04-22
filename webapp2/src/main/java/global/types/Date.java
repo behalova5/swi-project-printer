@@ -6,7 +6,9 @@
 package global.types;
 
 import java.io.Serializable;
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class Date implements Serializable{
     private long timestamp;
 

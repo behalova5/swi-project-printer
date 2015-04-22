@@ -4,6 +4,7 @@ import global.types.*;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
@@ -20,6 +21,7 @@ import org.eclipse.persistence.annotations.PrimaryKey;
  */
 @Entity
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
+
 public class User implements Serializable
 {
     private static final long serialVersionUID = 1L;

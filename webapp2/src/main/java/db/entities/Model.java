@@ -41,7 +41,6 @@ public class Model implements Serializable {
     @Embedded
     private Scale scale;
     
-    @Embedded
     private User user;
 
     public Color getColor() {
