@@ -12,6 +12,7 @@ import javax.persistence.Embeddable;
 public class Date implements Serializable{
     private long timestamp;
 
+    
     public Date() {
         this.timestamp=0;
     }
