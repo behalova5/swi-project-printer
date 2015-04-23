@@ -8,15 +8,13 @@ package app;
 import global.types.*;
 import db.entities.Model;
 import db.facades.IModelFacade;
-import db.facades.ModelFacade;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import view.managebeans.AddModelForm;
-import view.managebeans.ModelsView;
+
 
 /**
  *
@@ -24,9 +22,8 @@ import view.managebeans.ModelsView;
  */
 public class ManageModelTest {
     
-    IModelFacade modelFacade;
-    AddModelForm modelManager;
-    ModelsView viewManager;
+    IModelFacade facade;
+    ManageModel modelManager;
     
     
     // testing data initialization
@@ -34,16 +31,18 @@ public class ManageModelTest {
      public void setUp() {
          Model model = new Model();
          model.setIDmodel(1);
-         model.setColor(null);
+         model.setColor(new Color());
          model.setDate(null);
          model.setModelName(new ModelName("TestModel"));
          model.setScale(null);
 
          
-         ArrayList<Model>list = new ArrayList<Model>();
+         ArrayList<Model> list = new ArrayList<>();
          list.add(model);
          
-         modelFacade = new IModelFacade() {
+         final ArrayList<Model> modelList = list;
+         
+         facade = new IModelFacade() {
 
              @Override
              public Model getModelById(int IDmodel) {
@@ -77,7 +76,7 @@ public class ManageModelTest {
 
              @Override
              public List<Model> findAll() {
-                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                 return modelList;
              }
 
              @Override
@@ -91,8 +90,8 @@ public class ManageModelTest {
              }
          };
                        
-        modelManager = new AddModelForm();
-        //modelManager.setModelFacade(modelFacade);
+        modelManager = new ManageModel();
+        modelManager.setModelFacade(facade);
          
      }
      
@@ -100,17 +99,20 @@ public class ManageModelTest {
     public void tearDown() {
     }
     
-    /*
+    
     @Test
     public void addValidModel(){
+        Date date = new Date();
+        date.setCurrentDate();
         Model model = new Model();
-        model.setColor(null);
-        model.setDate(null);
+        model.setIDmodel(12345);
+        model.setColor(new Color("red"));
+        model.setDate(date);
         model.setModelName(new ModelName("valid"));
         model.setScale(null);
         
         try{
-           assertTrue("Vytvoreni validniho modelu selhalo",modelManager.AddModel(model));
+           assertTrue("Vytvoreni validniho modelu selhalo",modelManager.createModel(model));
         }catch(Exception e){
             
         }        
@@ -118,26 +120,22 @@ public class ManageModelTest {
     
     @Test
     public void addInvalidModel(){
+
         Model model = new Model();
-        model.setColor(null);
-        model.setDate(null);
+        model.setIDmodel(-12345);
         model.setModelName(new ModelName("invalid"));
-        model.setScale(null);
         
         try{
-           assertTrue("Vytvoreni nevalidniho modelu neselhalo",modelManager.AddModel(model));
+           assertTrue("Vytvoreni nevalidniho modelu neselhalo",modelManager.createModel(model));
         }catch(Exception e){
             
         }
-    }
-    
+    }      
     
     @Test
-    public void printModels(){
-        
+    public void viewModelsTest(){
+        assertEquals("Model list is empty - only Test model", 1, modelManager.getListOfModels().size());
     }
-    
-    */
-           
+              
 
 }
