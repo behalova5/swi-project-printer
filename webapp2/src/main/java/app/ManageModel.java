@@ -17,6 +17,10 @@ public class ManageModel {
     @EJB
     private IModelFacade modelFacade;
     
+    public void setModelFacade(IModelFacade facade){
+       modelFacade=facade;
+    }
+    
     public boolean createModel(Model model){
         try {
             modelFacade.create(model);
