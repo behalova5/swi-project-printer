@@ -15,6 +15,10 @@ public class Color implements Serializable{
     public Color() {
         this.color = "";
     }
+    
+    public Color(String color) {
+        this.color = color;
+    }
 
 
     public String getColor() {
