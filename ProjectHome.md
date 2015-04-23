@@ -1,0 +1,1 @@
+Projekt informační systém pro správu 3D tisku vyvíjený na Mendlově univerzitě v Brně.
